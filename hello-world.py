@@ -189,3 +189,113 @@ print("Hello, world! My coding journey starts now.")
 
 # The program above worked as expected. Now the task is to create a tries variable separately from a points variable. 
 
+# score = 0
+
+# def open_treasure_chest1():
+#     attempts = 3
+#     secret_password = "PythonRocks"
+#     user_guess = ""
+#     global score
+#       # Set the number of allowed tries
+
+#     while user_guess != secret_password and attempts > 0:
+#         user_guess = input(f"Enter the secret password to open the treasure chest ({attempts} tries left): ")
+
+#         if user_guess == secret_password:
+#             score += attempts
+#             print(f"🏆 Congratulations! The treasure chest opens, revealing a mountain of gold! You've unlocked the next level!")
+#             open_treasure_chest2()
+#         else:
+#             attempts -= 1
+#             if attempts > 0:
+#                 print(f"🚪 Wrong password! Try again. ({attempts} tries left)")
+#             else:
+#                 print("⛔ The treasure chest locks forever! Game Over.")
+
+# # Add the same logic for open_treasure_chest2
+# def open_treasure_chest2():
+#     attempts = 3
+#     secret_password = "ButFlutterisCuter"
+#     user_guess = ""
+#     global score
+
+#     while user_guess != secret_password and attempts > 0:
+#         user_guess = input(f"Enter the top secret password to open the treasure chest ({attempts} tries left): ")
+
+#         if user_guess == secret_password:
+#             score += attempts
+#             print(f"🌟 Congratulations! The treasure chest opens, revealing an even bigger mountain of gold with {score} diamonds!")
+#         else:
+#             attempts -= 1
+#             if attempts > 0:
+#                 print(f"🚪 Wrong password! Try again. ({attempts} tries left)")
+#             else:
+#                 print("⛔ The treasure chest locks forever! Game Over.")
+
+
+# # Start the game
+# open_treasure_chest1()
+
+def open_treasure_chest1(score):
+    attempts = 3
+    secret_password = "PythonRocks"
+    user_guess = ""
+
+    while user_guess != secret_password and attempts > 0:
+        user_guess = input(f"Enter the secret password to open the treasure chest ({attempts} tries left): ")
+
+        if user_guess == secret_password:
+            score += attempts  # Add remaining attempts to score
+            print(f"🏆 Congratulations! The treasure chest opens, revealing a mountain of gold! You've unlocked the next level!")
+            return open_treasure_chest2(score)  # Pass score to next function
+        else:
+            attempts -= 1
+            if attempts > 0:
+                print(f"🚪 Wrong password! Try again. ({attempts} tries left)")
+            else:
+                print("⛔ The treasure chest locks forever! Game Over.")
+    
+    return score  # Return the score at the end
+
+def open_treasure_chest2(score):
+    attempts = 3
+    secret_password = "ButFlutterisCuter"
+    user_guess = ""
+
+    while user_guess != secret_password and attempts > 0:
+        user_guess = input(f"Enter the top secret password to open the treasure chest ({attempts} tries left): ")
+
+        if user_guess == secret_password:
+            score += attempts
+            print(f"🌟 Congratulations! The treasure chest opens, revealing an even bigger mountain of gold with {score} diamonds!")
+            return score  # Return final score
+        else:
+            attempts -= 1
+            if attempts > 0:
+                print(f"🚪 Wrong password! Try again. ({attempts} tries left)")
+            else:
+                print("⛔ The treasure chest locks forever! Game Over.")
+    
+    return score  # Return the score at the end
+
+
+def get_rank(score):
+    if score >= 6:
+        return "🏆 **Master Codebreaker**! You cracked the chest with ease!"
+    elif score >= 3:
+        return "🌟 **Treasure Hunter**! Not bad, but you had some struggles!"
+    elif score >= 1:
+        return "😅 **Lucky Explorer**! You barely made it!"
+    else:
+        return "💀 **Lost Adventurer**... The chest remains locked forever."
+
+# Start the game
+
+final_score = open_treasure_chest1(0)  # Start with 0 score
+rank_message = get_rank(final_score)
+
+print(rank_message)
+print(f"🏅 Your final score: {final_score}")
+
+
+
