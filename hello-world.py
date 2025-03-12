@@ -281,13 +281,13 @@ def open_treasure_chest2(score):
 
 def get_rank(score):
     if score >= 6:
-        return "🏆 **Master Codebreaker**! You cracked the chest with ease!"
+        return print (f"🏆 **Master Codebreaker**! You cracked the chest with ease! Your final score: {final_score}")
     elif score >= 3:
-        return "🌟 **Treasure Hunter**! Not bad, but you had some struggles!"
+        return print(f"🌟 **Treasure Hunter**! Not bad, but you had some struggles! Your final score: {final_score}")
     elif score >= 1:
-        return "😅 **Lucky Explorer**! You barely made it!"
+        return print(f"😅 **Lucky Explorer**! You barely made it! Your final score: {final_score}")
     else:
-        return "💀 **Lost Adventurer**... The chest remains locked forever."
+        return print(f"💀 **Lost Adventurer**... The chest remains locked forever. Your final score: {final_score}")
 
 # Start the game
 
@@ -295,7 +295,7 @@ final_score = open_treasure_chest1(0)  # Start with 0 score
 rank_message = get_rank(final_score)
 
 print(rank_message)
-print(f"🏅 Your final score: {final_score}")
+# print(f"🏅 Your final score: {final_score}")
 
 
 
